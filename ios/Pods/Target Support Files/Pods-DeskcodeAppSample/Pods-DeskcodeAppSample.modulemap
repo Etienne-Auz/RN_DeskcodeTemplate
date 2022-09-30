@@ -1,0 +1,6 @@
+module Pods_DeskcodeAppSample {
+  umbrella header "Pods-DeskcodeAppSample-umbrella.h"
+
+  export *
+  module * { export * }
+}
