@@ -7,6 +7,7 @@ const authReducer = (user, action) => {
       return {token: null, email: ''};
     case 'signin':
     case 'signup':
+    case 'setbackup':
       return {
         token: action.payload.token,
         email: action.payload.email,
@@ -34,6 +35,18 @@ const signin = dispatch => {
   };
 };
 
+const setbackup = dispatch => {
+  return (data) => {
+    dispatch({
+      type: 'setbackup',
+      payload: {
+        token: data.token,
+        mail: data.mail,
+      },
+    });
+  };
+}
+
 const signout = dispatch => {
   return () => {
     dispatch({type: 'signout'});
@@ -42,6 +55,6 @@ const signout = dispatch => {
 
 export const {Provider, Context} = createDataContext(
   authReducer,
-  {signin, signout, signup},
+  {signin, signout, signup, setbackup},
   {token: null, email: ''},
 );
