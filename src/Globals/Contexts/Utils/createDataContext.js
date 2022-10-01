@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 
 export default ( reducer, action, defaultValue ) => {
     const Context = React.createContext();
@@ -19,5 +19,8 @@ export default ( reducer, action, defaultValue ) => {
         )
     };
 
+
     return { Context: Context, Provider: Provider };
 };
+
+

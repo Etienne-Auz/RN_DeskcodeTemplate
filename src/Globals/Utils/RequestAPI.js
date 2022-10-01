@@ -7,8 +7,7 @@ export const FetchAPI = async (type, params) => {
 };
 
 const RequestAPI = async (type, params) => {
-    const url = NODE_ENV === "development" ? DEV_URL : PROD_URL;
-
+    const url = (NODE_ENV === "development" ? DEV_URL : PROD_URL);
     const headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json'
