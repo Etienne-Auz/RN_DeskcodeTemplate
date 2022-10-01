@@ -13,5 +13,8 @@ export const LightTheme = {
     },
     Card: {
         background: 'rgb(125, 125, 125)',
+    },
+    Title: {
+        color: 'rgb(28, 28, 30)',
     }
  }

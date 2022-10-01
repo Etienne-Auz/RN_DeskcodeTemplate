@@ -12,7 +12,6 @@ import Welcome from '../Screens/Welcome/Welcome';
 import Home from '../Screens/Home/Home';
 /* Import Screens */
 
-
 const AdminRouter = () => {
     
     const { user } = useContext(AuthContext);
@@ -21,7 +20,7 @@ const AdminRouter = () => {
       <>
       <NavigationContainer>
         <Stack.Navigator>
-        {user.token === null ? (
+        {(user.token === null || user.token === undefined) ? (
 
             <Stack.Screen 
                 options={{headerShown: false}} 

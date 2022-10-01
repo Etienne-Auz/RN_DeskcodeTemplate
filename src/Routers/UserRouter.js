@@ -13,7 +13,6 @@ import Welcome from '../Screens/Welcome/Welcome';
 import Home from '../Screens/Home/Home';
 /* Import Screens */
 
-
 const UserRouter = () => {
     
     const { user } = useContext(AuthContext);
@@ -22,13 +21,11 @@ const UserRouter = () => {
       <>
       <NavigationContainer>
         <Stack.Navigator>
-        {user.token === null ? (
+        {(user.token === null || user.token === undefined) ? (
 
-            <Stack.Screen 
-                options={{headerShown: false}} 
-                name="Login" 
-                component={Login} 
-            />
+            <>
+            <Stack.Screen options={{headerShown: false}}  name="Login" component={Login} />
+            </>
 
         ) : (
             <Stack.Screen

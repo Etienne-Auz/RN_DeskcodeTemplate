@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import { Text, View } from 'react-native';
 
 import {Context as ThemeContext} from '../../Globals/Contexts/ThemeContext';
+import Title from '../../Globals/UI/Title/Title';
 
 
 const Welcome = () => {
@@ -14,7 +15,7 @@ const Welcome = () => {
             backgroundColor: theme.colors.background
           }}
         >
-          <Text>I'am Admin !</Text>
+          <Title>I'am Admin !</Title>
         </View>
       )
 };
