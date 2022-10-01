@@ -18,7 +18,7 @@ const Title = ({children}) => {
           color: theme.Title.color || "red",
           width: "100%",
           textAlign: "center",
-          marginTop: 100,
+          marginTop: 130,
           fontSize: 40,
           fontWeight: "bold"
         }}

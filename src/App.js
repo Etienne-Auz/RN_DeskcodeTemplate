@@ -7,12 +7,17 @@ import ThemeProvider from './Globals/Contexts/ThemeContext';
 /* Import Router */
 import DispatchRouter from './Routers/DispatchRouter';
 
+/*Import Overlay */
+import BasicOverlay from './Globals/UI/Overlays/BasicOverlay';
+
 const App = () => {
 
   return (
     <ThemeProvider>
       <AuthProvider>
-        <DispatchRouter/>
+        <BasicOverlay>
+          <DispatchRouter/>
+        </BasicOverlay>
       </AuthProvider>
     </ThemeProvider>
   )
