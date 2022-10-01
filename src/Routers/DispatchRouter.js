@@ -18,17 +18,25 @@ import EncryptedStorage from 'react-native-encrypted-storage';
 const DispatchRouter = () => {
     
     /* AuthContext can only be append inside context provider */
-    const { user, setbackup } = useContext(AuthContext);
+    const { user, setbackup, signout } = useContext(AuthContext);
 
     const STORAGE_KEY = "USER_SESSION";
 
     const searchUserSession = async () => {
         const data = await getValue();
-        setbackup(data);
+        if(data)
+        {
+          setbackup(data);
+        }
+    }
+    const logout = async () => {
+      await removeValue();
+      signout();
     }
 
       React.useEffect(() => {
         searchUserSession();
+        //logout();
       }, []);
 
     useEffect(() => {
@@ -68,13 +76,11 @@ const DispatchRouter = () => {
     const removeValue = async() => {
         try {
           await EncryptedStorage.removeItem(STORAGE_KEY);
-          Alert.alert(`The value with key ${STORAGE_KEY} was succesfully deleted`);
+          console.log(`The value with key ${STORAGE_KEY} was succesfully deleted`);
         } catch (error) {
-          Alert.alert(
+          console.log(
             `The value with key ${STORAGE_KEY} could not be deleted - ${error}`
           );
-        } finally {
-          done();
         }
       }
 
@@ -82,17 +88,15 @@ const DispatchRouter = () => {
     const clearValues = async() => {
         try {
           await EncryptedStorage.clear();
-          Alert.alert('The storage has been successfully cleared');
+          console.log('The storage has been successfully cleared');
         } catch (error) {
-          Alert.alert(`The storage could not be cleared - ${error}`);
-        } finally {
-          done();
+          console.log(`The storage could not be cleared - ${error}`);
         }
       }
 
-
     switch(user.role) {
         case 'ADMIN':
+        case 'SUPER-ADMIN':
             return <AdminRouter />
         case 'USER':
         default:
