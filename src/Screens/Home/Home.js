@@ -9,7 +9,7 @@ const Welcome = () => {
             backgroundColor: "yellow"
           }}
         >
-          <Text>Hello, world!</Text>
+          <Text>I'am User !</Text>
         </View>
       )
 };

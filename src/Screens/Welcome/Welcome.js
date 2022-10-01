@@ -14,7 +14,7 @@ const Welcome = () => {
             backgroundColor: theme.colors.background
           }}
         >
-          <Text>Hello, world!</Text>
+          <Text>I'am Admin !</Text>
         </View>
       )
 };

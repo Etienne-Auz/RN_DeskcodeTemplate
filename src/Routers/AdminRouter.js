@@ -18,25 +18,27 @@ const AdminRouter = () => {
     const { user } = useContext(AuthContext);
 
     return (
-    <NavigationContainer>
+      <>
+      <NavigationContainer>
+        <Stack.Navigator>
         {user.token === null ? (
-          <Stack.Navigator>
+
+            <Stack.Screen 
+                options={{headerShown: false}} 
+                name="Login" 
+                component={Login} 
+            />
+
+        ) : (
             <Stack.Screen
                 options={{headerShown: false}}
                 name="Welcome"
                 component={Welcome}
             />
-          </Stack.Navigator>
-        ) : (
-            <Stack.Navigator>
-            <Stack.Screen
-                options={{headerShown: false}}
-                name="Home"
-                component={Home}
-            />
-          </Stack.Navigator>
         )}
-    </NavigationContainer>
+        </Stack.Navigator>
+      </NavigationContainer>
+      </>
     );
 }
 
