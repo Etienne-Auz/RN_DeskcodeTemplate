@@ -94,6 +94,8 @@ const DispatchRouter = () => {
         }
       }
 
+    console.log(user);
+
     switch(user.role) {
         case 'ADMIN':
         case 'SUPER-ADMIN':
