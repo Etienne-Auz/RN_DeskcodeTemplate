@@ -20,7 +20,6 @@ const authReducer = (user, action) => {
 
 const signup = dispatch => {
   return ({email, password}) => {
-    console.log('Signup');
   };
 };
 

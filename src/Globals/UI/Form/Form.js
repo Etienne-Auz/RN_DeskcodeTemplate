@@ -13,27 +13,38 @@ import {Context as ThemeContext} from '../../Contexts/ThemeContext';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 
+import { removeValue } from '../../Utils/SecureStorage';
 
-const Form = ({fields, submitLabel, type}) => {
-    const {signin} = useContext(AuthContext);
+const Form = ({fields, submitLabel, type, style}) => {
+    const {signin, signout} = useContext(AuthContext);
     const { theme } = useContext(ThemeContext);
 
 
     const body = {};
     const onSubmit = async () => {
-        try {
-            const {data} = await FetchAPI("LOGIN", {body: body});
-            signin(data);
-        }
-        catch(e) {
-            console.log("test", e);
+        switch(type) {
+            case "LOGIN":
+                try {
+                    const {data} = await FetchAPI("LOGIN", {body: body});
+                    signin(data);
+                }
+                catch(e) {
+                    console.log("test", e);
+                }
+                break;
+
+            case "LOGOUT":
+            default:
+                await removeValue();
+                signout();
+                break;
         }
     };
 
 
     return (
         <>
-        {fields.map((elem) => {
+        {fields && fields.map((elem) => {
             return (
             <Input
                placeholder={elem.placeholder || ""} 

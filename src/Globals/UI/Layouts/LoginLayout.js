@@ -4,13 +4,14 @@ import { Text } from 'react-native';
 import Container from '../Container/Container';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
+import Title from '../Title/Title';
 
 
 const LoginLayout = () => {
     
     return (
         <>
-            <Text>Login</Text>
+            <Title>Login</Title>
             <Container>
                 <Card height={"auto"}>
                     <Form 

@@ -7,15 +7,20 @@ View
 import {Context as ThemeContext} from '../../Contexts/ThemeContext';
 
 
-const Container = ({children, width, height, background}) => {
+const Container = ({children, style}) => {
 
     const { theme } = useContext(ThemeContext);
 
     return (
         <View style={{
-            width: width || "100%",
-            height: height ||"100%",
-            backgroundColor: background || theme.Container.background
+            ...style,
+            width: style?.width || "100%",
+            height: style?.height ||"100%",
+            backgroundColor: style?.background || theme.Container.background,
+            top: style?.top || null,
+            bottom: style?.bottom || null,
+            position: style?.position || "relative",
+            zIndex: style?.zIndex || 1
         }}
         >
             {children}
