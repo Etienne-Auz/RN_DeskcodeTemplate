@@ -33,7 +33,7 @@ const DispatchRouter = () => {
       signout();
     }
 
-      React.useEffect(() => {
+      useEffect(() => {
         searchUserSession();
         //logout();
       }, []);

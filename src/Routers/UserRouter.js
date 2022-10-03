@@ -8,9 +8,7 @@ import {Context as AuthContext} from '../Globals/Contexts/AuthContext';
 const Stack = createNativeStackNavigator();
 
 /* Import Screens */
-import Login from '../Screens/Login/Login';
-import Welcome from '../Screens/Welcome/Welcome';
-import Home from '../Screens/Home/Home';
+import { Login, Register, Home} from '../Screens';
 /* Import Screens */
 
 const UserRouter = () => {
@@ -24,15 +22,12 @@ const UserRouter = () => {
         {(user.token === null || user.token === undefined) ? (
 
             <>
-            <Stack.Screen options={{headerShown: false}}  name="Login" component={Login} />
+              <Stack.Screen options={{headerShown: false}}  name="Login" component={Login} />
+              <Stack.Screen options={{headerShown: false}}  name="Register" component={Register} />
             </>
 
         ) : (
-            <Stack.Screen
-                options={{headerShown: false}}
-                name="Home"
-                component={Home}
-            />
+            <Stack.Screen options={{headerShown: false}} name="Home" component={Home} />
         )}
         </Stack.Navigator>
       </NavigationContainer>

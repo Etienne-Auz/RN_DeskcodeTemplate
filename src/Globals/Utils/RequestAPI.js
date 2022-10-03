@@ -39,7 +39,7 @@ const RequestAPI = async (type, params) => {
         
         case "GET":
         default:
-            data_ = await fetch(url+params.url, {
+            data_ = await fetch(url+"/"+params.url, {
             method: 'GET',
             headers: params.headers || headers,
             body: null

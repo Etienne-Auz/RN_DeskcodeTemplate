@@ -1,25 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
+
 
 import { 
-    Container, 
-    Card, 
-    Form, 
-    Title, 
-    Link 
+    Container,
+     Card, 
+     Form, 
+     Title
 } from '../../UI';
 
 
-const RegisterLayout = () => {
+const LoginLayout = () => {
     
     return (
         <>
-            <Title>Login</Title>
+            <Title>Register</Title>
             <Container>
-                <Card style={{
-                    height: "auto"
-                }}>
+                <Card height={"auto"}>
                     <Form 
-                    type={"LOGIN"} 
+                    type={"REGISTER"} 
                     fields={[
                         {
                             name: "mail",
@@ -32,19 +30,19 @@ const RegisterLayout = () => {
                             placeholder: "Rentrez votre mot de passe",
                             type: "password",
                             required: true
+                        },
+                        {
+                            name: "confirm_password",
+                            placeholder: "Confirmez votre mot de passe",
+                            type: "password",
+                            required: true
                         }
                     ]}
                     />
                 </Card>
-                <Link 
-                    target={"Register"} 
-                    style={{
-                        top: "40%"
-                    }}
-                >Pas de compte ?</Link>
             </Container>
         </>
     );
 };
 
-export default RegisterLayout;
+export default LoginLayout;
