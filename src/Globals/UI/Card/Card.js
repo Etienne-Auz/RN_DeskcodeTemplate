@@ -8,17 +8,18 @@ Text
 import {Context as ThemeContext} from '../../Contexts/ThemeContext';
 
 
-const Card = ({children, left, top, width, height, background}) => {
+const Card = ({children, style}) => {
 
     const { theme } = useContext(ThemeContext);
 
     return (
         <View style={{
-            left: left || "10%",
-            top: top || "10%",
-            width: width || "80%",
-            height: height ||"40%",
-            backgroundColor: background || theme.Card.background
+            ...style,
+            left: style?.left || "10%",
+            top: style?.top || "10%",
+            width: style?.width || "80%",
+            height: style?.height ||"40%",
+            backgroundColor: style?.background || theme.Card.background
         }}
         >
             {children}

@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import { Text, View } from 'react-native';
 
 import {Context as ThemeContext} from '../../Globals/Contexts/ThemeContext';
-import Title from '../../Globals/UI/Title/Title';
+import { Title, ListResource } from '../../Globals/UI';
 
 
 const Welcome = () => {
@@ -16,6 +16,9 @@ const Welcome = () => {
           }}
         >
           <Title>I'am Admin !</Title>
+          <ListResource
+            targetResource={"users"}
+          />
         </View>
       )
 };
